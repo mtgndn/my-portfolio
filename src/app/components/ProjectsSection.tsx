@@ -5,7 +5,7 @@ const projects = [
     title: "Blog Platformu",
     description: "Kullanıcıların yazı yazabildiği, yorum yaptığı bir Next.js blog platformu.",
     techs: ["Next.js", "Tailwind", "MongoDB"],
-    githubUrl: "https://github.com/mtgndn/blog-platform",
+    githubUrl: "https://github.com/mtgndn/kubitabi-portfolio",
   },
   {
     title: "Ürün Ekleme Çıkarma Uygulaması",

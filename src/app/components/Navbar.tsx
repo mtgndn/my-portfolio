@@ -4,6 +4,12 @@ import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
+const navItems = [
+  { label: "Projeler", href: "#projects" },
+  { label: "Hakkımda", href: "#about" },
+  { label: "İletişim", href: "#contact" },
+];
+
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -16,13 +22,9 @@ export default function Navbar() {
 
         {/* Masaüstü menü */}
         <div className="hidden md:flex space-x-8 text-lg font-semibold text-gray-800">
-          {["Projeler", "Hakkımda", "İletişim"].map((item) => (
-            <Link
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="relative group"
-            >
-              {item}
+          {navItems.map(({ label, href }) => (
+            <Link key={label} href={href} className="relative group">
+              {label}
               <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-indigo-600 transition-all group-hover:w-full"></span>
             </Link>
           ))}
@@ -44,14 +46,14 @@ export default function Navbar() {
           menuOpen ? "max-h-60 py-4" : "max-h-0"
         }`}
       >
-        {["Projeler", "Hakkımda", "İletişim"].map((item) => (
+        {navItems.map(({ label, href }) => (
           <Link
-            key={item}
-            href={`#${item.toLowerCase()}`}
+            key={label}
+            href={href}
             className="block px-6 py-2 font-semibold text-gray-700 hover:bg-gray-100"
             onClick={() => setMenuOpen(false)}
           >
-            {item}
+            {label}
           </Link>
         ))}
       </div>
