@@ -61,10 +61,10 @@ export default function CodeRain() {
     }
 
     function loop() {
-      // Burada ctx! ile kesin null olmadığını belirtiyoruz.
-      draw(ctx!, canvas);
-      animationFrameId = requestAnimationFrame(loop);
-    }
+  draw(ctx!, canvas!);
+  animationFrameId = requestAnimationFrame(loop);
+}
+
 
     loop();
 
