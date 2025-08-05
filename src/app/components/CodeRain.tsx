@@ -22,7 +22,6 @@ export default function CodeRain() {
     const fontSize = 16;
 
     const resize = () => {
-      // Parent element kontrolü, eğer yoksa window'u kullanır.
       if (canvas.parentElement) {
         canvas.width = canvas.parentElement.clientWidth;
         canvas.height = canvas.parentElement.clientHeight;
@@ -37,7 +36,6 @@ export default function CodeRain() {
     resize();
     window.addEventListener("resize", resize);
 
-    // draw fonksiyonu artık bağımlılıklarını parametre olarak alıyor.
     function draw(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) {
       ctx.fillStyle = "rgba(255, 255, 255, 0.1)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -63,7 +61,8 @@ export default function CodeRain() {
     }
 
     function loop() {
-      draw(ctx, canvas); // ctx ve canvas'ı draw fonksiyonuna gönderiyoruz.
+      // Burada ctx! ile kesin null olmadığını belirtiyoruz.
+      draw(ctx!, canvas);
       animationFrameId = requestAnimationFrame(loop);
     }
 
