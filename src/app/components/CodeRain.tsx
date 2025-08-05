@@ -9,23 +9,27 @@ export default function CodeRain() {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas) {
+      return;
+    }
 
     const ctx = canvas.getContext("2d");
-    if (!ctx) return;
+    if (!ctx) {
+      return;
+    }
 
     let animationFrameId: number;
     const fontSize = 16;
 
     const resize = () => {
-      if (!canvas.parentElement) {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      } else {
+      // Parent element kontrolü, eğer yoksa window'u kullanır.
+      if (canvas.parentElement) {
         canvas.width = canvas.parentElement.clientWidth;
         canvas.height = canvas.parentElement.clientHeight;
+      } else {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
       }
-
       columnsRef.current = Math.floor(canvas.width / fontSize);
       dropsRef.current = new Array(columnsRef.current).fill(1);
     };
@@ -33,6 +37,7 @@ export default function CodeRain() {
     resize();
     window.addEventListener("resize", resize);
 
+    // draw fonksiyonu artık bağımlılıklarını parametre olarak alıyor.
     function draw(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) {
       ctx.fillStyle = "rgba(255, 255, 255, 0.1)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -58,7 +63,7 @@ export default function CodeRain() {
     }
 
     function loop() {
-      draw(ctx, canvas);
+      draw(ctx, canvas); // ctx ve canvas'ı draw fonksiyonuna gönderiyoruz.
       animationFrameId = requestAnimationFrame(loop);
     }
 
