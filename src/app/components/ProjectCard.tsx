@@ -15,51 +15,51 @@ export default function ProjectCard({
   techs,
   githubUrl,
 }: ProjectCardProps) {
-  const [flipped, setFlipped] = useState(false);
+  const [hovered, setHovered] = useState(false);
 
   return (
     <div
-      className="w-72 h-48 perspective cursor-pointer"
-      onMouseEnter={() => setFlipped(true)}
-      onMouseLeave={() => setFlipped(false)}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className="w-80 bg-white dark:bg-gray-900 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer flex flex-col p-6"
     >
-      <div
-        className={`relative w-full h-full duration-700 transform-style-preserve-3d ${
-          flipped ? "rotate-y-180" : ""
-        }`}
-      >
-        {/* Ön yüz */}
-        <div className="absolute w-full h-full bg-white rounded-lg shadow-md flex items-center justify-center text-xl font-semibold text-gray-900 backface-hidden p-4">
-          {title}
-        </div>
+      
+      <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2">
+        {title}
+      </h3>
 
-        {/* Arka yüz */}
-        <div className="absolute w-full h-full bg-indigo-600 text-white rounded-lg shadow-md p-6 rotate-y-180 backface-hidden flex flex-col justify-between">
-          <p className="text-sm">{description}</p>
+      
+      <p className="text-gray-700 dark:text-gray-300 flex-grow">
+        {description}
+      </p>
 
-          <ul className="flex flex-wrap gap-2 mt-3 text-xs">
-            {techs.map((tech) => (
-              <li
-                key={tech}
-                className="bg-indigo-300 bg-opacity-30 rounded px-2 py-1"
-              >
-                {tech}
-              </li>
-            ))}
-          </ul>
-
-          {githubUrl && (
-            <a
-              href={githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 inline-block text-indigo-200 hover:text-white underline text-sm"
-            >
-              GitHub Reposu
-            </a>
-          )}
-        </div>
+      
+      <div className="mt-4 flex flex-wrap gap-2">
+        {techs.map((tech) => (
+          <span
+            key={tech}
+            className="bg-indigo-100 text-indigo-800 dark:bg-indigo-800 dark:text-indigo-100 px-3 py-1 rounded-full text-xs font-medium select-none"
+          >
+            {tech}
+          </span>
+        ))}
       </div>
+
+      
+      {githubUrl && (
+        <a
+          href={githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`mt-6 inline-block text-center rounded-md px-4 py-2 font-semibold transition-colors ${
+            hovered
+              ? "bg-indigo-700 text-white"
+              : "bg-indigo-500 text-indigo-100 hover:bg-indigo-600"
+          }`}
+        >
+          GitHub Reposu
+        </a>
+      )}
     </div>
   );
 }

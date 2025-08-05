@@ -1,4 +1,4 @@
-// components/Footer.tsx
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -24,7 +24,7 @@ export default function Footer() {
             LinkedIn
           </a>
           <a
-            href="mailto:metehan@example.com"
+            href="mailto:mtgndn@gmail.com"
             className="hover:text-gray-900 dark:hover:text-white transition"
           >
             E-posta

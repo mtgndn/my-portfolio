@@ -13,7 +13,6 @@ export default function AboutSection() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       viewport={{ once: true }}
     >
-      {/* Profil Fotoğrafı */}
       <Image
         src="/profile.JPEG"
         alt="Metehan Günaydın"
@@ -40,7 +39,6 @@ export default function AboutSection() {
         Takım çalışmasına yatkınım, sürekli öğrenmeye açığım ve projelerimi özenle geliştiririm. Arkadaşlarımla beraber CodeLiq adında bi girişime başlamış bulunmaktayız ve bununla insanlara hizmet ediyoruz.
       </p>
 
-      {/* Eğitim ve Diğer Bilgiler */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 text-left">
         <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-md shadow-sm">
           🎓 <span className="font-semibold">Mehmet Akif Ersoy Üniversitesi</span><br />
@@ -57,7 +55,6 @@ export default function AboutSection() {
         </div>
       </div>
 
-	  {/* CV İndir Butonu */}
       <a
         href="/Metehan_Gunaydin_CV_TR_Fixed.pdf"
         download
@@ -66,7 +63,6 @@ export default function AboutSection() {
         CV’mi İndir
       </a>
 
-      {/* Kullandığın Teknolojiler */}
       <h3 className="text-xl font-semibold mt-12 mb-4">Kullandığım Teknolojiler</h3>
       <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
         <span className="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded">React</span>

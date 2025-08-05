@@ -16,7 +16,7 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden text-white">
-      {/* Parallax CodeRain animasyonu */}
+
       <div
         className="absolute inset-0 -z-10"
         style={{ transform: `translateY(${offsetY * 0.5}px)` }}
@@ -45,13 +45,16 @@ export default function HeroSection() {
         Yazılım geliştirici, siber güvenlik tutkunu ve teknoloji meraklısı.
       </motion.p>
 
-      <motion.button
+      <motion.a
+        href="https://www.instagram.com/mtgndn"
+        target="_blank"
+        rel="noopener noreferrer"
         className="mt-8 px-6 py-3 rounded-full bg-white text-black font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-transform"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
       >
         İletişime Geç
-      </motion.button>
+      </motion.a>
     </section>
   );
 }

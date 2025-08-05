@@ -23,7 +23,7 @@ export default function TypewriterText() {
           setDisplayedText("");
           setCharIndex(0);
           setIndex((prev) => (prev + 1) % texts.length);
-        }, 2000); // bir yazı bittikten sonra 2 saniye bekle
+        }, 2000); 
       }
     }, 100);
 

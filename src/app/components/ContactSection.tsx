@@ -1,4 +1,4 @@
-// components/ContactSection.tsx
+
 import { Github, Linkedin, Mail } from "lucide-react";
 
 export default function ContactSection() {
