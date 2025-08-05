@@ -4,6 +4,8 @@ import React, { useEffect, useRef } from "react";
 
 export default function CodeRain() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const dropsRef = useRef<number[]>([]); // drops dizisini ref ile tutuyoruz
+  const columnsRef = useRef<number>(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -14,41 +16,41 @@ export default function CodeRain() {
 
     let animationFrameId: number;
 
+    const fontSize = 16;
+
+    // resize fonksiyonu, canvas boyutlarını ve drops/columns'u günceller
     const resize = () => {
       canvas.width = canvas.parentElement?.clientWidth || window.innerWidth;
       canvas.height = canvas.parentElement?.clientHeight || window.innerHeight;
-    };
-    resize();
 
+      columnsRef.current = Math.floor(canvas.width / fontSize);
+      dropsRef.current = new Array(columnsRef.current).fill(1);
+    };
+
+    resize();
     window.addEventListener("resize", resize);
 
-    const letters = "01{}[]<>/\\|_+-=abcdefghijklmnopqrstuvwxyz".split("");
-    const fontSize = 16;
-    const columns = Math.floor(canvas.width / fontSize);
-
-    const drops: number[] = new Array(columns).fill(1);
-
     function draw() {
-      if (!ctx) return;
-
       ctx.fillStyle = "rgba(255, 255, 255, 0.1)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       ctx.fillStyle = "#222222";
       ctx.font = `${fontSize}px monospace`;
 
-      for (let i = 0; i < drops.length; i++) {
-        const text = letters[Math.floor(Math.random() * letters.length)];
+      for (let i = 0; i < dropsRef.current.length; i++) {
+        const text = "01{}[]<>/\\|_+-=abcdefghijklmnopqrstuvwxyz".charAt(
+          Math.floor(Math.random() * 36)
+        );
         const x = i * fontSize;
-        const y = drops[i] * fontSize;
+        const y = dropsRef.current[i] * fontSize;
 
         ctx.fillText(text, x, y);
 
         if (y > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
+          dropsRef.current[i] = 0;
         }
 
-        drops[i]++;
+        dropsRef.current[i]++;
       }
     }
 
