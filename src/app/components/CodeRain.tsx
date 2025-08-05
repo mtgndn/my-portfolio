@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from "react";
 
 export default function CodeRain() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const dropsRef = useRef<number[]>([]); // drops dizisini ref ile tutuyoruz
+  const dropsRef = useRef<number[]>([]);
   const columnsRef = useRef<number>(0);
 
   useEffect(() => {
@@ -17,7 +17,6 @@ export default function CodeRain() {
     let animationFrameId: number;
     const fontSize = 16;
 
-    // resize fonksiyonu, canvas boyutlarını ve drops/columns'u günceller
     const resize = () => {
       if (!canvas.parentElement) {
         canvas.width = window.innerWidth;
@@ -34,8 +33,7 @@ export default function CodeRain() {
     resize();
     window.addEventListener("resize", resize);
 
-    function draw() {
-      // ctx kesinlikle null değil çünkü yukarıda kontrol ettik
+    function draw(ctx: CanvasRenderingContext2D) {
       ctx.fillStyle = "rgba(255, 255, 255, 0.1)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -60,7 +58,7 @@ export default function CodeRain() {
     }
 
     function loop() {
-      draw();
+      draw(ctx);
       animationFrameId = requestAnimationFrame(loop);
     }
 
