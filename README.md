@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Metehan Günaydın - Kişisel Portföy Web Sitesi
+---
 
-## Getting Started
+## Proje Hakkında
 
-First, run the development server:
+Bu proje, **Metehan Günaydın**'ın kişisel portföy web sitesi olarak geliştirilmiştir. Modern web teknolojileri kullanılarak hazırlanmış, sade, hızlı ve erişilebilir bir tanıtım sitesi hedeflenmiştir. 
+
+Kullanıcılar projelerimi inceleyebilir, hakkımda bilgi alabilir ve benimle iletişime geçebilir.
+
+---
+
+## Teknolojiler
+
+- **Next.js 13** (App Router)
+- **React**
+- **TypeScript**
+- **Tailwind CSS**
+- **Framer Motion** (Animasyonlar için)
+- **ShadCN UI** (Bileşenler için)
+- **React Icons & Lucide Icons**
+- **Vercel** (Opsiyonel: deploy için)
+
+---
+
+## Özellikler
+
+- **Responsive Tasarım:** Masaüstü, tablet ve mobil cihazlar için optimize edilmiştir.
+- **Animasyonlar:** Framer Motion ile akıcı mikro animasyonlar.
+- **Parallax ve Typewriter Efektleri:** Hero bölümünde dikkat çekici görseller ve yazı animasyonu.
+- **Projeler Bölümü:** Projeler interaktif kartlarla gösterilir.
+- **Kolay Navigasyon:** Navbar ile sayfa içi hızlı geçiş.
+- **Erişilebilirlik:** Semantik HTML, klavye navigasyonu ve uygun ARIA etiketleri.
+- **SEO Optimizasyonu:** Meta tag’lar, başlık ve açıklamalar.
+- **Performans:** Next.js’in sunduğu performans iyileştirmeleriyle hızlı yükleme.
+
+---
+
+## Kurulum ve Çalıştırma
+
+1. Depoyu klonlayın:
+
+```bash
+git clone https://github.com/mtgndn/portfolio.git
+cd portfolio
+```
+
+2. Bağımlılıkları yükleyin:
+
+```bash
+npm install
+```
+
+3. Geliştirme sunucusunu başlatın:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Tarayıcınızda `http://localhost:3000` adresini açın.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Dosya Yapısı
 
-## Learn More
+```
+/app            # Next.js sayfa ve layout yapısı
+/components     # Tekrarlayan React bileşenleri
+/public         # Statik dosyalar (resimler, pdf, favicon vb.)
+/styles         # Global ve özel stil dosyaları (Tailwind config vb.)
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Özelleştirme
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Profil Fotoğrafı:** `/public/profile.JPEG` dosyasını değiştirerek güncelleyebilirsiniz.
+- **CV:** `/public/Metehan_Gunaydin_CV_TR_Fixed.pdf` dosyasını kendi CV'nizle değiştirin.
+- **Projeler:** `/components/ProjectsSection.tsx` içindeki proje verilerini güncelleyerek yeni projeler ekleyebilirsiniz.
+- **Tema:** Tailwind config üzerinden renk, font vb. ayarları değiştirebilirsiniz.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Canlı Demo
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Yakında yüklenecektir.
+
+---
+
+## İletişim
+
+- Email: metehan@example.com  
+- LinkedIn: [linkedin.com/in/metehan-gunaydin](https://linkedin.com/in/metehan-gunaydin)  
+- GitHub: [github.com/mtgndn](https://github.com/mtgndn)  
+- Instagram: [instagram.com/mtgndn](https://instagram.com/mtgndn)
+
+---
+
+## Lisans
+
+Bu proje MIT lisansı ile lisanslanmıştır.
+
+---
+
+**Metehan Günaydın**  
+© 2025
