@@ -1,8 +1,4 @@
 # Metehan Günaydın - Kişisel Portföy Web Sitesi
-
-![Project Screenshot](./public/screenshot.png)  
-*Projenin ekran görüntüsü buraya eklenebilir*
-
 ---
 
 ## Proje Hakkında
