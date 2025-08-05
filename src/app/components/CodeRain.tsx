@@ -15,13 +15,17 @@ export default function CodeRain() {
     if (!ctx) return;
 
     let animationFrameId: number;
-
     const fontSize = 16;
 
     // resize fonksiyonu, canvas boyutlarını ve drops/columns'u günceller
     const resize = () => {
-      canvas.width = canvas.parentElement?.clientWidth || window.innerWidth;
-      canvas.height = canvas.parentElement?.clientHeight || window.innerHeight;
+      if (!canvas.parentElement) {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      } else {
+        canvas.width = canvas.parentElement.clientWidth;
+        canvas.height = canvas.parentElement.clientHeight;
+      }
 
       columnsRef.current = Math.floor(canvas.width / fontSize);
       dropsRef.current = new Array(columnsRef.current).fill(1);
@@ -31,6 +35,7 @@ export default function CodeRain() {
     window.addEventListener("resize", resize);
 
     function draw() {
+      // ctx kesinlikle null değil çünkü yukarıda kontrol ettik
       ctx.fillStyle = "rgba(255, 255, 255, 0.1)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
