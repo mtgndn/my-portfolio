@@ -26,7 +26,7 @@ export default function AboutSection() {
       <p className="text-muted-foreground text-lg leading-relaxed">
         Merhaba! Ben <span className="font-semibold">Metehan Günaydın</span>, İzmir’de yaşayan bir yazılım geliştirici ve
         <span className="font-semibold"> siber güvenlik</span> meraklısıyım.
-        Mehmet Akif Ersoy Üniversitesi'nde eğitimime devam ediyorum.
+        Mehmet Akif Ersoy Üniversitesi&apos;nde eğitimime devam ediyorum.
       </p>
 
       <p className="text-muted-foreground text-lg leading-relaxed mt-4">

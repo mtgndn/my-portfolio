@@ -24,7 +24,7 @@ export default function CodeRain() {
 
     const letters = "01{}[]<>/\\|_+-=abcdefghijklmnopqrstuvwxyz".split("");
     const fontSize = 16;
-    let columns = Math.floor(canvas.width / fontSize);
+    const columns = Math.floor(canvas.width / fontSize);
 
     const drops: number[] = new Array(columns).fill(1);
 
