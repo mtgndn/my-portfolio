@@ -1,38 +1,65 @@
-// components/ProjectCard.tsx
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Github } from "lucide-react";
+"use client";
+
+import { useState } from "react";
 
 type ProjectCardProps = {
   title: string;
   description: string;
   techs: string[];
-  githubUrl: string;
+  githubUrl?: string;
 };
 
-export default function ProjectCard({ title, description, techs, githubUrl }: ProjectCardProps) {
+export default function ProjectCard({
+  title,
+  description,
+  techs,
+  githubUrl,
+}: ProjectCardProps) {
+  const [flipped, setFlipped] = useState(false);
+
   return (
-    <Card className="w-full max-w-md shadow-md">
-      <CardContent className="p-6">
-        <h3 className="text-2xl font-semibold mb-2">{title}</h3>
-        <p className="text-muted-foreground mb-4">{description}</p>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {techs.map((tech, index) => (
-            <span
-              key={index}
-              className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm dark:bg-gray-800 dark:text-gray-200"
-            >
-              {tech}
-            </span>
-          ))}
+    <div
+      className="w-72 h-48 perspective cursor-pointer"
+      onMouseEnter={() => setFlipped(true)}
+      onMouseLeave={() => setFlipped(false)}
+    >
+      <div
+        className={`relative w-full h-full duration-700 transform-style-preserve-3d ${
+          flipped ? "rotate-y-180" : ""
+        }`}
+      >
+        {/* Ön yüz */}
+        <div className="absolute w-full h-full bg-white rounded-lg shadow-md flex items-center justify-center text-xl font-semibold text-gray-900 backface-hidden p-4">
+          {title}
         </div>
-        <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-          <Button variant="outline" className="flex items-center gap-2">
-            <Github size={16} />
-            GitHub
-          </Button>
-        </a>
-      </CardContent>
-    </Card>
+
+        {/* Arka yüz */}
+        <div className="absolute w-full h-full bg-indigo-600 text-white rounded-lg shadow-md p-6 rotate-y-180 backface-hidden flex flex-col justify-between">
+          <p className="text-sm">{description}</p>
+
+          <ul className="flex flex-wrap gap-2 mt-3 text-xs">
+            {techs.map((tech) => (
+              <li
+                key={tech}
+                className="bg-indigo-300 bg-opacity-30 rounded px-2 py-1"
+              >
+                {tech}
+              </li>
+            ))}
+          </ul>
+
+          {githubUrl && (
+            <a
+              href={githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-block text-indigo-200 hover:text-white underline text-sm"
+            >
+              GitHub Reposu
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
   );
 }

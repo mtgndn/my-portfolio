@@ -1,4 +1,3 @@
-// components/ProjectsSection.tsx
 import ProjectCard from "./ProjectCard";
 
 const projects = [
@@ -9,16 +8,16 @@ const projects = [
     githubUrl: "https://github.com/mtgndn/blog-platform",
   },
   {
-    title: "Görev Takip Uygulaması",
-    description: "React ile yapılmış, drag-and-drop özellikli görev yönetim aracı.",
+    title: "Ürün Ekleme Çıkarma Uygulaması",
+    description: "React ile yapılmış, drag-and-drop özellikli ürün ekleme platformu.",
     techs: ["React", "Firebase", "Tailwind"],
-    githubUrl: "https://github.com/mtgndn/task-tracker",
+    githubUrl: "https://github.com/mtgndn/shopping_System",
   },
   {
-    title: "Portföy Sitesi",
+    title: "Oyun Listeleme Sitesi",
     description: "Bu gördüğünüz portföy sitesini ShadCN ve Next.js ile geliştirdim.",
     techs: ["Next.js", "ShadCN", "Tailwind"],
-    githubUrl: "https://github.com/mtgndn/portfolio-site",
+    githubUrl: "https://github.com/mtgndn/oyun-kutusu",
   },
 ];
 

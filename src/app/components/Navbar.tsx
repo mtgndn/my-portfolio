@@ -8,25 +8,24 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="w-full fixed top-0 left-0 z-50 bg-white dark:bg-black border-b border-gray-200 dark:border-gray-800">
-      <nav className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-        <Link href="/" className="text-xl font-bold">
+    <header className="w-full fixed top-0 left-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+      <nav className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+        <Link href="/" className="text-2xl font-extrabold text-gray-900">
           Metehan Günaydın
         </Link>
 
         {/* Masaüstü menü */}
-        <div className="space-x-4 hidden md:flex">
-          <Link href="#projects" className="hover:underline text-sm">
-            Projeler
-          </Link>
-          <Link href="#about" className="hover:underline text-sm">
-            Hakkımda
-          </Link>
-          <Link href="#contact" className="hover:underline text-sm">
-            İletişim
-          </Link>
-
-	
+        <div className="hidden md:flex space-x-8 text-lg font-semibold text-gray-800">
+          {["Projeler", "Hakkımda", "İletişim"].map((item) => (
+            <Link
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className="relative group"
+            >
+              {item}
+              <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-indigo-600 transition-all group-hover:w-full"></span>
+            </Link>
+          ))}
         </div>
 
         {/* Hamburger ikonu */}
@@ -35,36 +34,27 @@ export default function Navbar() {
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Mobil menüyü aç/kapat"
         >
-          {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          {menuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </nav>
 
       {/* Mobil menü */}
-      {menuOpen && (
-        <div className="md:hidden bg-white dark:bg-black border-t border-gray-200 dark:border-gray-800 px-4 py-4 space-y-3">
+      <div
+        className={`md:hidden bg-white border-t border-gray-200 overflow-hidden transition-all duration-300 ${
+          menuOpen ? "max-h-60 py-4" : "max-h-0"
+        }`}
+      >
+        {["Projeler", "Hakkımda", "İletişim"].map((item) => (
           <Link
-            href="#projects"
-            className="block hover:underline"
+            key={item}
+            href={`#${item.toLowerCase()}`}
+            className="block px-6 py-2 font-semibold text-gray-700 hover:bg-gray-100"
             onClick={() => setMenuOpen(false)}
           >
-            Projeler
+            {item}
           </Link>
-          <Link
-            href="#about"
-            className="block hover:underline"
-            onClick={() => setMenuOpen(false)}
-          >
-            Hakkımda
-          </Link>
-          <Link
-            href="#contact"
-            className="block hover:underline"
-            onClick={() => setMenuOpen(false)}
-          >
-            İletişim
-          </Link>
-        </div>
-      )}
+        ))}
+      </div>
     </header>
   );
 }

@@ -12,7 +12,7 @@ export default function ContactSection() {
 
       <div className="flex justify-center gap-6">
         <a
-          href="mailto:metehan@example.com"
+          href="mailto:mtgndn@gmail.com"
           aria-label="E-posta"
           className="flex items-center gap-2 border border-gray-300 rounded px-4 py-2 hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-800 transition"
         >
