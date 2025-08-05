@@ -33,7 +33,7 @@ export default function CodeRain() {
     resize();
     window.addEventListener("resize", resize);
 
-    function draw(ctx: CanvasRenderingContext2D) {
+    function draw(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) {
       ctx.fillStyle = "rgba(255, 255, 255, 0.1)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -58,7 +58,7 @@ export default function CodeRain() {
     }
 
     function loop() {
-      draw(ctx);
+      draw(ctx, canvas);
       animationFrameId = requestAnimationFrame(loop);
     }
 
