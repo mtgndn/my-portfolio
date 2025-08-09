@@ -32,7 +32,7 @@ export default function ContactSection() {
         </a>
 
         <a
-          href="https://linkedin.com/in/metehan-günaydın-361514241"
+          href="https://www.linkedin.com/in/mtgndn"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
